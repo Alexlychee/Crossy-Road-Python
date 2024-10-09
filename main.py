@@ -25,10 +25,16 @@ while game_is_on:
     car_manager.create_cars()
     car_manager.move_cars()
 
+    # Detect when the turtle player collides with a car and stop the game if this happens.
+    for cars in car_manager.all_cars:
+        if player.distance(cars) < 25:
+            game_is_on = False
+
+screen.exitonclick()
+
+
 # TODOS
-"""
-Detect when the turtle player collides with a car and stop the game if this happens. If you get stuck, check the video walkthrough in Step 5.
-"""
+
 
 """
 Detect when the turtle player has reached the top edge of the screen (i.e., reached the FINISH_LINE_Y). 
