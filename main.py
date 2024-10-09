@@ -30,6 +30,7 @@ while game_is_on:
     for cars in car_manager.all_cars:
         if player.distance(cars) < 25:
             game_is_on = False
+            scoreboard.game_over()
 
 
     # Detect when the turtle player has reached the top edge of the screen.
