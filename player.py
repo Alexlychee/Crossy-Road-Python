@@ -6,17 +6,20 @@ FINISH_LINE_Y = 280
 
 
 class Player(Turtle):
+    """
+    Create a turtle player that starts at the bottom of the screen and listen for the "Up" keypress to move the turtle north.
+    """
     def __init__(self):
         super().__init__()
-        self.player = Turtle()
         self.screen = Screen()
+        self.shape("turtle")
+        self.penup()
+        self.left(90)
+        self.goto(STARTING_POSITION)
+
+    def go_up(self):
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
 
 
-
-
-
-"""
-Create a turtle player that starts at the bottom of the screen and listen for the "Up" keypress to move the turtle north. 
-If you get stuck, check the video walkthrough in Step 3.
-"""
 
