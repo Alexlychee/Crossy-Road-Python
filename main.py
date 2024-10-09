@@ -1,6 +1,6 @@
 import time
 from turtle import Screen
-from player import Player
+from player import Player, FINISH_LINE_Y
 from car_manager import CarManager
 from scoreboard import Scoreboard
 
@@ -30,19 +30,12 @@ while game_is_on:
         if player.distance(cars) < 25:
             game_is_on = False
 
+
+    # Detect when the turtle player has reached the top edge of the screen.
+    if player.ycor() > FINISH_LINE_Y:
+        player.go_to_start()
+        car_manager.level_up()
+
+
 screen.exitonclick()
 
-
-# TODOS
-
-
-"""
-Detect when the turtle player has reached the top edge of the screen (i.e., reached the FINISH_LINE_Y). 
-When this happens, return the turtle to the starting position and increase the speed of the cars. 
-Hint: think about creating an attribute and using the MOVE_INCREMENT to increase the car speed. If you get stuck, check the video walkthrough in Step 6.
-"""
-
-"""
-Create a scoreboard that keeps track of which level the user is on. Every time the turtle player does a successful crossing, the level should increase. 
-hen the turtle hits a car, GAME OVER should be displayed in the centre. If you get stuck, check the video walkthrough in Step 7.
-"""
